@@ -1,0 +1,1 @@
+This repository contains frontend and backend code for RampCard bootcamp
