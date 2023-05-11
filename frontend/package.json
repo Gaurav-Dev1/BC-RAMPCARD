@@ -11,7 +11,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest -c jest.config.ts --passWithNoTests --coverage",
-    "test-coverage": "jest --coverage --testResultsProcessor jest-sonar-reporter"
+    "test-coverage": "jest --coverage --passWithNoTests --testResultsProcessor jest-sonar-reporter"
   },
   "keywords": [],
   "author": "",
