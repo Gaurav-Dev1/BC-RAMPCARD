@@ -1,5 +1,5 @@
 const App = () => {
-  return <div></div>
+  return (<div data-testid = "app">this</div>)
 }
 
 export default App
