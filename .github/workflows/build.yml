@@ -12,7 +12,7 @@ jobs:
         timeout-minutes: 10
         defaults:
             run:
-                working-directory: ./
+                working-directory: ./frontend
 
         steps:
             - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
               run: npm test
             - name: SonarCloud Scan
               with:
-                  projectBaseDir: ./
+                  projectBaseDir: ./frontend
 
               uses: SonarSource/sonarcloud-github-action@master
               env:
