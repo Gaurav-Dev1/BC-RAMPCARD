@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Image from '.'
-import Illustation from '../../../assets/images/illustration.svg'
-import AwsImg from '../../../assets/images/aws.svg'
+import Illustation from '../../../../public/assets/images/illustration.svg'
+import AwsImg from '../../../../public/assets/images/aws.svg'
 
 const meta: Meta<typeof Image> = {
   title: 'Atoms/Image',

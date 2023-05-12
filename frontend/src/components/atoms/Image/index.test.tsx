@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import Image from '.'
-import AwsImg from '../../../assets/images/aws.svg'
+import AwsImg from '../../../../public/assets/images/aws.svg'
 
 describe('Image component unit test for positive and negative cases', () => {
   it('positive scenario for getting image', () => {
