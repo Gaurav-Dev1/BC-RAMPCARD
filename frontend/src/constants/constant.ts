@@ -1,2 +1,6 @@
 export const TYPOGRAPHY_POSITIVE_TEST_TEXT = 'typography'
 export const TYPOGRAPHY_NEGATIVE_TEST_TEXT = 'negative-test'
+export const LABEL_VALUE_CARD_TEST_LABEL = 'Potential Savings'
+export const LABEL_VALUE_CARD_TEST_VALUE = '$5,000.00'
+export const AUGUST_SPEND_TEXT = 'August spend'
+export const AUGUST_SPEND_AMOUNT = '$12,198.72'
