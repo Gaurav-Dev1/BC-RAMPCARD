@@ -1,3 +1,8 @@
 export const TYPOGRAPHY_POSITIVE_TEST_TEXT = 'typography'
 export const TYPOGRAPHY_NEGATIVE_TEST_TEXT = 'negative-test'
 export const ICON_DATA_TESTID = 'icon-comp'
+export const SEARCH_SUGGESTION_CARD_HEADER_TEXT = 'Show all results for '
+export const TRANSACTIONS = 'TRANSACTIONS'
+export const SEARCH_SUGGESTION_CARD_FOOTER_TEXT = 'Search tips'
+export const SEARCHED_TEXT = 'Lyft'
+export const SEARCH_SUGGESTION_TEST_ID = 'search-suggestion-card'
