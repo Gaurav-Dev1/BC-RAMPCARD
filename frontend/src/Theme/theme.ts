@@ -74,6 +74,7 @@ declare module '@mui/material/Button' {
     primary500: true
     primary300: true
     structuralWhite: true
+    structural100: true
   }
 }
 const theme = createTheme({
