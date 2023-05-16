@@ -21,6 +21,7 @@ declare module '@mui/material/styles' {
     accentRed100: PaletteColor
     accentGreen100: PaletteColor
     accentGreen50: PaletteColor
+    structuralWhite: PaletteColor
   }
 
   interface PaletteOptions {
@@ -39,6 +40,7 @@ declare module '@mui/material/styles' {
     accentRed100: PaletteColorOptions
     accentGreen100: PaletteColorOptions
     accentGreen50: PaletteColorOptions
+    structuralWhite: PaletteColorOptions
   }
 
   interface TypographyVariants {
@@ -64,7 +66,13 @@ declare module '@mui/material/Typography' {
     caption2: true
   }
 }
-
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    primary500: true
+    primary300: true
+    structuralWhite: true
+  }
+}
 const theme = createTheme({
   palette: {
     primary300: {
@@ -112,6 +120,9 @@ const theme = createTheme({
     accentGreen50: {
       main: '#D7F7C2',
     },
+    structuralWhite: {
+      main: '#FFFFFF',
+    }
   },
   typography: {
     h1: {
@@ -120,6 +131,7 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: '28px',
       lineHeight: '40px',
+      textTransform: 'none',
     },
     h2: {
       fontFamily: 'Segoe UI',
@@ -127,6 +139,7 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: '24px',
       lineHeight: '40px',
+      textTransform: 'none',
     },
     subtitle1: {
       fontFamily: 'Segoe UI',
@@ -134,6 +147,7 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: '16px',
       lineHeight: '21px',
+      textTransform: 'none',
     },
     subtitle2: {
       fontFamily: 'Segoe UI',
@@ -141,6 +155,7 @@ const theme = createTheme({
       fontWeight: 600,
       fontSize: '16px',
       lineHeight: '21px',
+      textTransform: 'none',
     },
     subtitle3: {
       fontFamily: 'Segoe UI',
@@ -148,6 +163,7 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '16px',
       lineHeight: '20px',
+      textTransform: 'none',
     },
     body1: {
       fontFamily: 'Segoe UI',
@@ -155,6 +171,7 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: '14px',
       lineHeight: '19px',
+      textTransform: 'none',
     },
     body2: {
       fontFamily: 'Segoe UI',
@@ -162,6 +179,7 @@ const theme = createTheme({
       fontWeight: 600,
       fontSize: '14px',
       lineHeight: '24px',
+      textTransform: 'none',
     },
     body3: {
       fontFamily: 'Segoe UI',
@@ -169,6 +187,7 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '14px',
       lineHeight: '19px',
+      textTransform: 'none',
     },
     caption1: {
       fontFamily: 'Segoe UI',
@@ -176,6 +195,7 @@ const theme = createTheme({
       fontWeight: 600,
       fontSize: '12px',
       lineHeight: '16px',
+      textTransform: 'none',
     },
     caption2: {
       fontFamily: 'Segoe UI',
@@ -183,6 +203,7 @@ const theme = createTheme({
       fontWeight: 400,
       fontSize: '12px',
       lineHeight: '16px',
+      textTransform: 'none',
     },
   },
 })
