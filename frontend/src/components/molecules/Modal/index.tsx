@@ -24,7 +24,7 @@ const ModalComponent = (props: ModalComponentProps) => {
       >
         <Box
           sx={{
-            position: 'absolute' as 'absolute',
+            position: 'absolute',
             top: top,
             left: left,
             transform: 'translate(-50%, -50%)',
