@@ -15,4 +15,21 @@ describe('DropDown component unit test', () => {
     )
     expect(screen.getByTestId('text-select')).toBeInTheDocument()
   })
+  it('renders selected value when not empty', () => {
+    const items = ['Item 1', 'Item 2', 'Item 3'];
+    const value = 'Item 2';
+    const onChange = jest.fn();
+
+    render(
+      <DropDown
+        value={value}
+        onChange={onChange}
+        items={items}
+        placeholder="Select an item"
+      />
+    );
+
+    const selectedValue = screen.getByText(value);
+    expect(selectedValue).toBeInTheDocument();
+  });
 })
