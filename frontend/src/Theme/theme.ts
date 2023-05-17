@@ -48,6 +48,7 @@ declare module '@mui/material/styles' {
     body3: React.CSSProperties
     caption1: React.CSSProperties
     caption2: React.CSSProperties
+    tableHeading: React.CSSProperties
   }
 
   interface TypographyVariantsOptions {
@@ -55,6 +56,7 @@ declare module '@mui/material/styles' {
     body3?: React.CSSProperties
     caption1?: React.CSSProperties
     caption2?: React.CSSProperties
+    tableHeading?: React.CSSProperties
   }
 }
 
@@ -64,6 +66,7 @@ declare module '@mui/material/Typography' {
     body3: true
     caption1: true
     caption2: true
+    tableHeading: true
   }
 }
 declare module '@mui/material/Button' {
@@ -204,7 +207,7 @@ const theme = createTheme({
       fontSize: '12px',
       lineHeight: '16px',
       textTransform: 'none',
-    },
+    }
   },
 })
 
