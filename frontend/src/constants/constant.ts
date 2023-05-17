@@ -12,3 +12,7 @@ export const SEARCHED_TEXT = 'Lyft'
 export const SEARCH_SUGGESTION_TEST_ID = 'search-suggestion-card'
 export const SEARCH_CARDS = 'Search cards'
 export const ICONBUTTON_TESTID = 'icon-button'
+export const QUICKBOOKS_CATEGORY_OPTION = ['Expense', 'Travel','Travel meals', 'Hotels']
+export const QUICKBOOKS_CATEGORY_DROPDOWN_PLACEHOLDER = 'Choose one'
+
+
