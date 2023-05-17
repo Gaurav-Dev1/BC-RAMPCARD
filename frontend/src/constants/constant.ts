@@ -6,3 +6,5 @@ export const TRANSACTIONS = 'TRANSACTIONS'
 export const SEARCH_SUGGESTION_CARD_FOOTER_TEXT = 'Search tips'
 export const SEARCHED_TEXT = 'Lyft'
 export const SEARCH_SUGGESTION_TEST_ID = 'search-suggestion-card'
+export const SEARCH_CARDS = 'Search cards'
+
