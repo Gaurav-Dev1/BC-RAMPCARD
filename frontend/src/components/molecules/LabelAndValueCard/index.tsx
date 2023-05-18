@@ -30,13 +30,21 @@ interface LabelAndValueCardProps {
     | 'caption1'
     | 'caption2'
     | undefined
+  itemGap?: string
 }
 
 const LabelAndValueCard = (props: LabelAndValueCardProps) => {
-  const { label, value, labelColor, valueColor, labelVariant, valueVariant } =
-    props
+  const {
+    label,
+    value,
+    labelColor,
+    valueColor,
+    labelVariant,
+    valueVariant,
+    itemGap,
+  } = props
   return (
-    <Grid container gap={'5px'}>
+    <Grid container gap={itemGap === undefined ? '5px' : itemGap}>
       <Grid item>
         <Typography variant={labelVariant} color={labelColor}>
           {label}
