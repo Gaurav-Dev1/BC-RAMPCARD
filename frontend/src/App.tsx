@@ -1,7 +1,6 @@
 import './App.css'
 import theme from './Theme/theme'
 import { ThemeProvider } from '@mui/material'
-
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -9,5 +8,4 @@ const App = () => {
     </ThemeProvider>
   )
 }
-
 export default App
