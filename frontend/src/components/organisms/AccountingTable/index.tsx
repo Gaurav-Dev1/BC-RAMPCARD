@@ -36,7 +36,6 @@ const TableDataHeadingCell = styled(TableCell)({
 })
 
 const AmountTableRowCell = styled(TableCell)({
-  // display: 'flex',
   paddingRight: '8px',
 })
 
@@ -103,7 +102,6 @@ const AccountingTable = (props: AccountingTableProps) => {
     items[accountingData.id] = false
   })
   const [checkboxes, setCheckboxes] = useState(items)
-  // const [quickbookRule, setQuickBookRule] = useState<string>('')
 
   const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log('handleCheckbox')
@@ -120,8 +118,8 @@ const AccountingTable = (props: AccountingTableProps) => {
         <TableHead>
           <TableRow>
             <CheckBoxTableHead></CheckBoxTableHead>
-            {ACCOUNTING_TABLE_HEADINGS.map((data: string) => (
-              <TableDataHeadingCell>
+            {ACCOUNTING_TABLE_HEADINGS.map((data: string,index: number) => (
+              <TableDataHeadingCell key={data}>
                 <Typography
                   variant="caption2"
                   color={theme.palette.highEmphasis.main}

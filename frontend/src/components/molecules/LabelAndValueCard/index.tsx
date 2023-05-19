@@ -44,7 +44,7 @@ const LabelAndValueCard = (props: LabelAndValueCardProps) => {
     itemGap,
   } = props
   return (
-    <Grid container gap={itemGap === undefined ? '5px' : itemGap}>
+    <Grid container gap={itemGap ?? '5px'}>
       <Grid item>
         <Typography variant={labelVariant} color={labelColor}>
           {label}
