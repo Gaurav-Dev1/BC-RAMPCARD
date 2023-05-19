@@ -50,4 +50,3 @@ export const DEPARTMENT_RULES_MOCK_VALUE  = 0
 export const LOCATION_RULES_MOCK_VALUE  = 0
 export const MERCHANT_RULES_MOCK_VALUE  = 2
 
-
