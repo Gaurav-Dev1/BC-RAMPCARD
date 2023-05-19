@@ -46,7 +46,9 @@ export const DEPARTMENT_RULES  = 'Department rules'
 export const LOCATION_RULES  = 'Location rules'
 export const MISSING_ITEMS_MOCK_VALUE  = 79
 export const CATEGORY_RULES_MOCK_VALUE  = 3
+export const CREATE_CATEGORY_RULE_BUTTON_TEXT = 'Create category rule'
 export const DEPARTMENT_RULES_MOCK_VALUE  = 0
 export const LOCATION_RULES_MOCK_VALUE  = 0
 export const MERCHANT_RULES_MOCK_VALUE  = 2
+
 

@@ -7,12 +7,14 @@ import Icon from '../../atoms/Icon'
 import ClearIcon from '../../../../public/assets/icons/clearIcon.svg'
 import FilterIcon from '../../../../public/assets/icons/filterIcon.svg'
 import RemoveIcon from '../../../../public/assets/icons/removeIcon.svg'
-import { SYNC_BUTTON_LABEL } from '../../../constants/constant'
+import { CREATE_CATEGORY_RULE_BUTTON_TEXT, SYNC_BUTTON_LABEL } from '../../../constants/constant'
 import ButtonComponent from '../../atoms/Button'
 import AccountingTable from '../AccountingTable'
 import { accountingTabledata } from '../../../Data/AccountTableData'
 import SearchSuggestionCard from '../../molecules/SearchSuggestionCard'
 import { useState } from 'react'
+import TablePaginationFooter from '../TablePaginationFooter'
+import RampCards from '../../molecules/RampCards'
 
 const MainContainer = styled(Grid)({
   gap: '12px',
@@ -40,6 +42,17 @@ const SearchSuggestionCardContainer = styled(Grid)({
   marginTop: '4px',
 })
 
+const RampCardsContainerWithButtons = styled(Grid) ({
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between'
+})
+
+const ButtonsContainer = styled(Grid) ({
+  display: 'flex',
+  gap: '12px'
+})
+
 const AccountingPageContent = () => {
   const [searchedText, setSearchedText] = useState<string | undefined>()
   const [searched, setSearched] = useState<boolean>(false)
@@ -60,7 +73,48 @@ const AccountingPageContent = () => {
     setSearched(true)
   }
   return (
-    <MainContainer>
+    <MainContainer data-testid='accounting-page-content' container>
+      <RampCardsContainerWithButtons>
+      <RampCards merchantRulesCount={0} width='47%'/>
+      <ButtonsContainer >
+      <ButtonComponent
+            variant={'text'}
+            color="structuralWhite"
+            label={'Sync history'}
+            labelColor={theme.palette.mediumEmphasis.main}
+            height="32px"
+            typographyVariant="body2"
+            boxShadow="0px 2px 5px rgba(60, 66, 87, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.08), inset 0px -1px 1px rgba(0, 0, 0, 0.12)"
+            borderRadius="4px"
+            padding="3px 8px 5px 8px"
+          />
+      <ButtonComponent
+            variant={'text'}
+            color="structuralWhite"
+            label={'Settings'
+            }
+            labelColor={theme.palette.mediumEmphasis.main}
+            height="32px"
+            typographyVariant="body2"
+            boxShadow="0px 2px 5px rgba(60, 66, 87, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.08), inset 0px -1px 1px rgba(0, 0, 0, 0.12)"
+            borderRadius="4px"
+            padding="3px 8px 5px 8px"
+          />
+      <ButtonComponent
+            variant={'contained'}
+            color="primary500"
+            label={CREATE_CATEGORY_RULE_BUTTON_TEXT
+            }
+            labelColor={theme.palette.structuralWhite.main}
+            height="32px"
+            typographyVariant="body2"
+            boxShadow="none"
+            borderRadius="4px"
+            padding="3px 8px 5px 8px"
+          />
+      </ButtonsContainer>
+      </RampCardsContainerWithButtons>
+      
       <Header container>
         <HeaderLeftContainer item>
           <SearchBar width="456px" handleChange={onSearchTextChange} />
@@ -137,6 +191,7 @@ const AccountingPageContent = () => {
         onQuickBooksRuleChange={onQuickbooksRuleChange}
         quickbooksRule={quickbooksRule}
       />
+      <TablePaginationFooter />
     </MainContainer>
   )
 }

@@ -77,6 +77,12 @@ const MemoContainer = styled(Grid)({
 const MemoTableRowCell = styled(TableCell)({
   paddingLeft: '8px',
 })
+
+const StyledTableRow = styled(TableRow)({
+  '&:not(:last-child)': {
+    borderBottom: `2px solid ${theme.palette.stroke50.main}`, // Add a border bottom to all rows except the last one
+  },
+})
 export interface AccountingDataType {
   id: number
   transactions: {
@@ -94,7 +100,7 @@ export interface AccountingDataType {
 }
 interface AccountingTableProps {
   accountingTableData: AccountingDataType[]
-  onQuickBooksRuleChange?: ( event: SelectChangeEvent<unknown>) => void
+  onQuickBooksRuleChange?: (event: SelectChangeEvent<unknown>) => void
   quickbooksRule?: string
 }
 const AccountingTable = (props: AccountingTableProps) => {
@@ -115,20 +121,13 @@ const AccountingTable = (props: AccountingTableProps) => {
     setCheckboxes(tempCheckboxes)
   }
 
-  
-
-  // const onQuickbooksChange = (event: SelectChangeEvent<unknown>): void => {
-  //   console.log(event.target.value as string)
-  //   setQuickBookRule(event.target.value as string)
-  // }
-
   return (
     <TableContainer component={Paper} data-testid="accounting-table">
       <Table aria-label="simple table">
         <TableHead>
-          <TableRow>
+          <StyledTableRow>
             <CheckBoxTableHead></CheckBoxTableHead>
-            {ACCOUNTING_TABLE_HEADINGS.map((data: string,index: number) => (
+            {ACCOUNTING_TABLE_HEADINGS.map((data: string, index: number) => (
               <TableDataHeadingCell key={data}>
                 <Typography
                   variant="caption2"
@@ -138,7 +137,7 @@ const AccountingTable = (props: AccountingTableProps) => {
                 </Typography>
               </TableDataHeadingCell>
             ))}
-          </TableRow>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {accountingTableData.map((data: AccountingDataType) => (
