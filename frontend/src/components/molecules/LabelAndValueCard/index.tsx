@@ -2,8 +2,8 @@ import { Grid } from '@mui/material'
 import Typography from '../../atoms/Typography'
 
 interface LabelAndValueCardProps {
-  label: string
-  value: string
+  label: string 
+  value: string | number
   labelColor: string
   valueColor: string
   labelVariant:

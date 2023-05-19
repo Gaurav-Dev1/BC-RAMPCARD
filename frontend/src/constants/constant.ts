@@ -38,3 +38,16 @@ export const SYNC_BUTTON_LABEL = 'Sync'
 export const PAGINATION_RESULTS_MOCK_COUNT = '919 results'
 export const PAGINATION_NEXT_BUTTON_LABEL = 'Next'
 export const PAGINATION_PREV_BUTTON_LABEL = 'Previous'
+export const RAMPCARDS_TEXT = 'Ramp cards'
+export const MISSING_ITEMS  = 'Missing items'
+export const MERCHANT_RULES  = 'Merchant rules'
+export const CATEGORY_RULES  = 'Category rules'
+export const DEPARTMENT_RULES  = 'Department rules'
+export const LOCATION_RULES  = 'Location rules'
+export const MISSING_ITEMS_MOCK_VALUE  = 79
+export const CATEGORY_RULES_MOCK_VALUE  = 3
+export const DEPARTMENT_RULES_MOCK_VALUE  = 0
+export const LOCATION_RULES_MOCK_VALUE  = 0
+export const MERCHANT_RULES_MOCK_VALUE  = 2
+
+
