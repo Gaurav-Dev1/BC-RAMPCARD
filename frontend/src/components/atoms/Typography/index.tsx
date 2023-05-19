@@ -18,12 +18,13 @@ interface TypographyProps {
   color?: string
   sx?: SxProps<Theme>
   children: React.ReactNode
+  onClick?: () => void
 }
 
 const Typography = (props: TypographyProps) => {
-  const { variant, color, sx, children } = props
+  const { variant, color, sx, children, onClick } = props
   return (
-    <MuiTypography variant={variant} color={color} sx={sx}>
+    <MuiTypography variant={variant} color={color} sx={sx} onClick = {onClick}>
       {children}
     </MuiTypography>
   )

@@ -5,7 +5,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-import { Grid, styled } from '@mui/material'
+import { Grid, SelectChangeEvent, styled } from '@mui/material'
 import Typography from '../../atoms/Typography'
 import theme from '../../../Theme/theme'
 import {
@@ -94,14 +94,17 @@ export interface AccountingDataType {
 }
 interface AccountingTableProps {
   accountingTableData: AccountingDataType[]
+  onQuickBooksRuleChange?: ( event: SelectChangeEvent<unknown>) => void
+  quickbooksRule?: string
 }
 const AccountingTable = (props: AccountingTableProps) => {
-  const { accountingTableData } = props
+  const { accountingTableData, onQuickBooksRuleChange, quickbooksRule } = props
   const items = {} as any
   accountingTableData.forEach((accountingData: AccountingDataType) => {
     items[accountingData.id] = false
   })
   const [checkboxes, setCheckboxes] = useState(items)
+  // const [quickbooksRule, setQuickBookRule] = useState('')
 
   const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log('handleCheckbox')
@@ -111,6 +114,13 @@ const AccountingTable = (props: AccountingTableProps) => {
     tempCheckboxes[index] = !tempCheckboxes[index]
     setCheckboxes(tempCheckboxes)
   }
+
+  
+
+  // const onQuickbooksChange = (event: SelectChangeEvent<unknown>): void => {
+  //   console.log(event.target.value as string)
+  //   setQuickBookRule(event.target.value as string)
+  // }
 
   return (
     <TableContainer component={Paper} data-testid="accounting-table">
@@ -177,6 +187,8 @@ const AccountingTable = (props: AccountingTableProps) => {
               <TableCell>
                 <DropDown
                   placeholder={QUICKBOOKS_CATEGORY_DROPDOWN_PLACEHOLDER}
+                  value={quickbooksRule}
+                  onChange={onQuickBooksRuleChange}
                   height="32px"
                   width="96%"
                   items={QUICKBOOKS_CATEGORY_OPTION}

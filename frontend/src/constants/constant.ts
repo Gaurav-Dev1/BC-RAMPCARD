@@ -33,3 +33,5 @@ export const ACCOUNTING_TABLE_HEADINGS = [
   'SYNC',
 ]
 export const SYNC_BUTTON_TEST = 'Make ready'
+export const ICONBUTTON_TESTID = 'icon-button'
+export const SYNC_BUTTON_LABEL = 'Sync'
