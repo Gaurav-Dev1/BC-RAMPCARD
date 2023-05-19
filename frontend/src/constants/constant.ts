@@ -35,3 +35,6 @@ export const ACCOUNTING_TABLE_HEADINGS = [
 export const SYNC_BUTTON_TEST = 'Make ready'
 export const ICONBUTTON_TESTID = 'icon-button'
 export const SYNC_BUTTON_LABEL = 'Sync'
+export const PAGINATION_RESULTS_MOCK_COUNT = '919 results'
+export const PAGINATION_NEXT_BUTTON_LABEL = 'Next'
+export const PAGINATION_PREV_BUTTON_LABEL = 'Previous'
