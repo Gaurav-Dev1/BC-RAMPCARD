@@ -11,4 +11,6 @@ export const SEARCH_SUGGESTION_CARD_FOOTER_TEXT = 'Search tips'
 export const SEARCHED_TEXT = 'Lyft'
 export const SEARCH_SUGGESTION_TEST_ID = 'search-suggestion-card'
 export const SEARCH_CARDS = 'Search cards'
+export const SPENDING_GRAPH_TEST_ID = 'spending-graph'
 export const ICONBUTTON_TESTID = 'icon-button'
+
