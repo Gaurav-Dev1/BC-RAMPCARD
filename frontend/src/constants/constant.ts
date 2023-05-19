@@ -15,3 +15,16 @@ export const SEARCH_SUGGESTION_TEST_ID = 'search-suggestion-card'
 export const SEARCH_CARDS = 'Search cards'
 export const SPENDING_GRAPH_TEST_ID = 'spending-graph'
 export const ICONBUTTON_TESTID = 'icon-button'
+export const RAMPCARDS_TEXT = 'Ramp cards'
+export const MISSING_ITEMS  = 'Missing items'
+export const MERCHANT_RULES  = 'Merchant rules'
+export const CATEGORY_RULES  = 'Category rules'
+export const DEPARTMENT_RULES  = 'Department rules'
+export const LOCATION_RULES  = 'Location rules'
+export const MISSING_ITEMS_MOCK_VALUE  = 79
+export const CATEGORY_RULES_MOCK_VALUE  = 3
+export const DEPARTMENT_RULES_MOCK_VALUE  = 0
+export const LOCATION_RULES_MOCK_VALUE  = 0
+export const MERCHANT_RULES_MOCK_VALUE  = 2
+
+
