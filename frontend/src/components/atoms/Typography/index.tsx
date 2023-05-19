@@ -13,6 +13,7 @@ interface TypographyProps {
     | 'body3'
     | 'caption1'
     | 'caption2'
+    | 'custom'
     | undefined
   color?: string
   sx?: SxProps<Theme>
