@@ -14,4 +14,22 @@ export const SEARCHED_TEXT = 'Lyft'
 export const SEARCH_SUGGESTION_TEST_ID = 'search-suggestion-card'
 export const SEARCH_CARDS = 'Search cards'
 export const SPENDING_GRAPH_TEST_ID = 'spending-graph'
-export const ICONBUTTON_TESTID = 'icon-button'
+export const MERCHANT_RULE_MODAL_HEADING = 'Create merchant rule'
+export const MERCHANT_RULE_CONTENT_FIRST_HALF =
+  'Set a default QuickBooks Category for '
+export const MERCHANT_RULE_CONTENT_SECOND_HALF =
+  'This rule will be applied automatically to all unsynced and future transactions from '
+export const MERCHANT_RULE_MODAL_CONTENT =
+  'Set a default QuickBooks Category for "Lyft". This rule will be applied automatically to all unsynced and future transactions from "Lyft".'
+export const MERCHANT_RULE_MODAL_TRANSACTIONS_INFO = '42 unsynced transactions'
+export const ACCOUNTING_TABLE_HEADINGS = [
+  'TRANSACTIONS',
+  'AMOUNT ',
+  'DATE',
+  'USER',
+  'QUICKBOOKS CATEGORY',
+  'RECEIPT',
+  'MEMO',
+  'SYNC',
+]
+export const SYNC_BUTTON_TEST = 'Make ready'
