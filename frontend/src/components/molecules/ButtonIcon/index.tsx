@@ -13,7 +13,7 @@ interface ButtonIconProps {
   labelColor?: string
   variant: 'contained' | 'text' | 'outlined'
   color: OverridableStringUnion<
-    'primary500' | 'structuralWhite',
+    'primary500' | 'structuralWhite' | 'structural100',
     ButtonPropsColorOverrides
   >
   typographyVariant?: 'body2' | 'custom'

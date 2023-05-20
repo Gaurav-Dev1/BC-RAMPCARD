@@ -29,3 +29,4 @@ export const CATEGORY_RULES_MOCK_VALUE  = 3
 export const DEPARTMENT_RULES_MOCK_VALUE  = 0
 export const LOCATION_RULES_MOCK_VALUE  = 0
 export const MERCHANT_RULES_MOCK_VALUE  = 2
+export const SETUP_GUIDE = 'Setup guide'
