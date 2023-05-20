@@ -16,7 +16,6 @@ import {
 } from '../../../constants/constant'
 import CheckBoxComponent from '../../atoms/Checkbox'
 import ButtonComponent from '../../atoms/Button'
-import { useState } from 'react'
 import DropDown from '../../molecules/DropDown'
 import LabelAndValueCard from '../../molecules/LabelAndValueCard'
 import Icon from '../../atoms/Icon'
@@ -97,29 +96,21 @@ export interface AccountingDataType {
   }
   receiptNumber: string
   memo: string
+  rule: string
 }
 interface AccountingTableProps {
   accountingTableData: AccountingDataType[]
   onQuickBooksRuleChange?: (event: SelectChangeEvent<unknown>) => void
-  quickbooksRule?: string
+  handleCheckbox: (e: React.ChangeEvent<HTMLInputElement>) => void
+  checkboxes: any
 }
 const AccountingTable = (props: AccountingTableProps) => {
-  const { accountingTableData, onQuickBooksRuleChange, quickbooksRule } = props
-  const items = {} as any
-  accountingTableData.forEach((accountingData: AccountingDataType) => {
-    items[accountingData.id] = false
-  })
-  const [checkboxes, setCheckboxes] = useState(items)
-  // const [quickbooksRule, setQuickBookRule] = useState('')
-
-  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('handleCheckbox')
-    const { name } = e.target
-    const index = Number(name)
-    const tempCheckboxes = { ...checkboxes }
-    tempCheckboxes[index] = !tempCheckboxes[index]
-    setCheckboxes(tempCheckboxes)
-  }
+  const {
+    accountingTableData,
+    onQuickBooksRuleChange,
+    handleCheckbox,
+    checkboxes,
+  } = props
 
   return (
     <TableContainer component={Paper} data-testid="accounting-table">
@@ -186,7 +177,8 @@ const AccountingTable = (props: AccountingTableProps) => {
               <TableCell>
                 <DropDown
                   placeholder={QUICKBOOKS_CATEGORY_DROPDOWN_PLACEHOLDER}
-                  value={quickbooksRule}
+                  value={data.rule}
+                  name={String(data.id)}
                   onChange={onQuickBooksRuleChange}
                   height="32px"
                   width="96%"

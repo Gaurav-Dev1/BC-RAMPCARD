@@ -50,5 +50,6 @@ export const CREATE_CATEGORY_RULE_BUTTON_TEXT = 'Create category rule'
 export const DEPARTMENT_RULES_MOCK_VALUE  = 0
 export const LOCATION_RULES_MOCK_VALUE  = 0
 export const MERCHANT_RULES_MOCK_VALUE  = 2
+export const DELETE_BUTTON_LABEL  = 'Delete'
 
 

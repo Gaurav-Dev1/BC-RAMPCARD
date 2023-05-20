@@ -7,12 +7,17 @@ import Icon from '../../atoms/Icon'
 import ClearIcon from '../../../../public/assets/icons/clearIcon.svg'
 import FilterIcon from '../../../../public/assets/icons/filterIcon.svg'
 import RemoveIcon from '../../../../public/assets/icons/removeIcon.svg'
-import { CREATE_CATEGORY_RULE_BUTTON_TEXT, SYNC_BUTTON_LABEL } from '../../../constants/constant'
+import DeleteIcon from '../../../../public/assets/icons/deleteIcon.svg'
+import {
+  CREATE_CATEGORY_RULE_BUTTON_TEXT,
+  DELETE_BUTTON_LABEL,
+  SYNC_BUTTON_LABEL,
+} from '../../../constants/constant'
 import ButtonComponent from '../../atoms/Button'
-import AccountingTable from '../AccountingTable'
+import AccountingTable, { AccountingDataType } from '../AccountingTable'
 import { accountingTabledata } from '../../../Data/AccountTableData'
 import SearchSuggestionCard from '../../molecules/SearchSuggestionCard'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TablePaginationFooter from '../TablePaginationFooter'
 import RampCards from '../../molecules/RampCards'
 
@@ -42,26 +47,65 @@ const SearchSuggestionCardContainer = styled(Grid)({
   marginTop: '4px',
 })
 
-const RampCardsContainerWithButtons = styled(Grid) ({
+const RampCardsContainerWithButtons = styled(Grid)({
   display: 'flex',
   width: '100%',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 })
 
-const ButtonsContainer = styled(Grid) ({
+const ButtonsContainer = styled(Grid)({
   display: 'flex',
-  gap: '12px'
+  gap: '12px',
 })
 
 const AccountingPageContent = () => {
   const [searchedText, setSearchedText] = useState<string | undefined>()
   const [searched, setSearched] = useState<boolean>(false)
+  const [transactionsData, setTransactionsData] =
+    useState<AccountingDataType[]>(accountingTabledata)
+  const [checkedIds, setCheckedIds] = useState<boolean[]>([])
 
-  const [quickbooksRule, setQuickBookRule] = useState('')
+  const items = [] as any
+  transactionsData.forEach((accountingData: AccountingDataType) => {
+    items[accountingData.id] = false
+  })
+  const [checkboxes, setCheckboxes] = useState(items)
+
+  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name } = e.target
+    const index = Number(name)
+    const tempCheckboxes = [...checkboxes]
+
+    tempCheckboxes[index] = !tempCheckboxes[index]
+    setCheckboxes(tempCheckboxes)
+  }
+
+  useEffect(() => {
+    const selectedIndices = checkboxes.reduce(
+      (indices: number[], value: boolean, index: number) => {
+        if (value) {
+          indices.push(index)
+        }
+        return indices
+      },
+      []
+    )
+    setCheckedIds(selectedIndices)
+  }, [checkboxes])
 
   const onQuickbooksRuleChange = (event: SelectChangeEvent<unknown>): void => {
-    console.log(event.target.value as string)
-    setQuickBookRule(event.target.value as string)
+    const { name } = event.target
+    const id = Number(name)
+    let tempTransactionsData: AccountingDataType[] = [...transactionsData]
+    console.log(tempTransactionsData)
+    tempTransactionsData.forEach((item, index) => {
+      if (item.id === id) {
+        item.rule = event.target.value as string
+      }
+    })
+    console.log('shallow array copy -> ', tempTransactionsData)
+    setTransactionsData(tempTransactionsData)
+    console.log('changed transactions data', transactionsData)
   }
 
   const onSearchTextChange = (
@@ -72,12 +116,13 @@ const AccountingPageContent = () => {
   const onSearchedTextClick = () => {
     setSearched(true)
   }
+
   return (
-    <MainContainer data-testid='accounting-page-content' container>
+    <MainContainer data-testid="accounting-page-content" container>
       <RampCardsContainerWithButtons>
-      <RampCards merchantRulesCount={0} width='47%'/>
-      <ButtonsContainer >
-      <ButtonComponent
+        <RampCards merchantRulesCount={0} width="47%" />
+        <ButtonsContainer>
+          <ButtonComponent
             variant={'text'}
             color="structuralWhite"
             label={'Sync history'}
@@ -88,11 +133,10 @@ const AccountingPageContent = () => {
             borderRadius="4px"
             padding="3px 8px 5px 8px"
           />
-      <ButtonComponent
+          <ButtonComponent
             variant={'text'}
             color="structuralWhite"
-            label={'Settings'
-            }
+            label={'Settings'}
             labelColor={theme.palette.mediumEmphasis.main}
             height="32px"
             typographyVariant="body2"
@@ -100,11 +144,10 @@ const AccountingPageContent = () => {
             borderRadius="4px"
             padding="3px 8px 5px 8px"
           />
-      <ButtonComponent
+          <ButtonComponent
             variant={'contained'}
             color="primary500"
-            label={CREATE_CATEGORY_RULE_BUTTON_TEXT
-            }
+            label={CREATE_CATEGORY_RULE_BUTTON_TEXT}
             labelColor={theme.palette.structuralWhite.main}
             height="32px"
             typographyVariant="body2"
@@ -112,9 +155,9 @@ const AccountingPageContent = () => {
             borderRadius="4px"
             padding="3px 8px 5px 8px"
           />
-      </ButtonsContainer>
+        </ButtonsContainer>
       </RampCardsContainerWithButtons>
-      
+
       <Header container>
         <HeaderLeftContainer item>
           <SearchBar width="456px" handleChange={onSearchTextChange} />
@@ -145,6 +188,18 @@ const AccountingPageContent = () => {
           )}
         </HeaderLeftContainer>
         <HeaderRightContainer item>
+          {checkedIds.length > 0 && (
+            <ButtonIcon
+              variant={'text'}
+              label={DELETE_BUTTON_LABEL}
+              labelColor={theme.palette.lowEmphasis.main}
+              typographyVariant="custom"
+              startIcon={<Icon src={DeleteIcon} />}
+              height="28px"
+              color={'stroke50'}
+              padding="3px 8px 5px 8px"
+            />
+          )}
           <ButtonIcon
             variant={'text'}
             label="Clear filter"
@@ -187,9 +242,10 @@ const AccountingPageContent = () => {
         </SearchSuggestionCardContainer>
       )}
       <AccountingTable
-        accountingTableData={accountingTabledata}
+        accountingTableData={transactionsData}
         onQuickBooksRuleChange={onQuickbooksRuleChange}
-        quickbooksRule={quickbooksRule}
+        handleCheckbox={handleCheckbox}
+        checkboxes={checkboxes}
       />
       <TablePaginationFooter />
     </MainContainer>
