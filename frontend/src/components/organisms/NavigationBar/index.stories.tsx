@@ -3,7 +3,7 @@ import NavigationBar from '.'
 
 
 const meta: Meta<typeof NavigationBar> = {
-  title: 'Molecules/NavigationBar',
+  title: 'Organisms/NavigationBar',
   component: NavigationBar,
 }
 
