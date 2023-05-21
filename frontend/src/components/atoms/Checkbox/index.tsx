@@ -5,7 +5,7 @@ import { styled } from '@mui/material';
 
 interface CheckBoxComponentProps {
     checked: boolean;
-    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }
 
 
