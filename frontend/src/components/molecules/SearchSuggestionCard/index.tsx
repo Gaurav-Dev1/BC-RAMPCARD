@@ -11,6 +11,7 @@ import Icon from '../../atoms/Icon'
 import QuestionIcon from '../../../../public/assets/icons/questionIcon.svg'
 interface SearchSuggestionCardProps {
   searchedText: string
+  onClick?: () => void
 }
 const SearchSuggestionCardMainContainer = styled(Box)({
   border: `1px solid ${theme.palette.stroke100.main}`,
@@ -19,6 +20,8 @@ const SearchSuggestionCardMainContainer = styled(Box)({
     '0px 15px 35px rgba(60, 66, 87, 0.08), 0px 5px 15px rgba(0, 0, 0, 0.12)',
   width: '588px',
   background: theme.palette.structuralWhite.main,
+  zIndex: 100,
+  position: 'absolute'
 })
 
 const CardHeader = styled(Box)({
@@ -57,7 +60,7 @@ const FooterItemContainer = styled(Box)({
 })
 
 const SearchSuggestionCard = (props: SearchSuggestionCardProps) => {
-  const { searchedText } = props
+  const { searchedText, onClick } = props
   return (
     <SearchSuggestionCardMainContainer data-testid={SEARCH_SUGGESTION_TEST_ID}>
       <CardHeader>
@@ -76,8 +79,8 @@ const SearchSuggestionCard = (props: SearchSuggestionCardProps) => {
           {TRANSACTIONS}
         </Typography>
       </CardMiddleContainer>
-      <SearchedTextContainer>
-        <Typography variant="subtitle3" color={theme.palette.highEmphasis.main}>
+      <SearchedTextContainer >
+        <Typography variant="subtitle3" color={theme.palette.highEmphasis.main} onClick={onClick} sx={{cursor: 'pointer'}}>
           {searchedText}
         </Typography>
       </SearchedTextContainer>

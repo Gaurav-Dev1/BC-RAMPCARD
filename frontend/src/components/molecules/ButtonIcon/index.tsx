@@ -3,6 +3,8 @@ import {
   Button as MuiButton,
   ButtonPropsColorOverrides,
   styled,
+  SxProps,
+  Theme,
 } from '@mui/material'
 import { OverridableStringUnion } from '@mui/types'
 import Typography from '../../atoms/Typography'
@@ -13,10 +15,11 @@ interface ButtonIconProps {
   labelColor?: string
   variant: 'contained' | 'text' | 'outlined'
   color: OverridableStringUnion<
-    'primary500' | 'structuralWhite' | 'structural100',
+    'primary500' | 'structuralWhite' | 
+'stroke50',
     ButtonPropsColorOverrides
   >
-  typographyVariant?: 'body2' | 'custom'
+  typographyVariant?: 'body2' | 'custom' | 'caption2' | 'caption1'
   width?: string
   height?: string
   padding?: string
@@ -27,6 +30,7 @@ interface ButtonIconProps {
   borderRadius?: string
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
+  sx?: SxProps<Theme>
 }
 
 const StyledButton = styled(MuiButton)((props: ButtonIconProps) => ({
@@ -52,9 +56,11 @@ const ButtonIcon = (props: ButtonIconProps) => {
     borderRadius,
     startIcon,
     endIcon,
+    sx
   } = props
   return (
     <StyledButton
+    sx={sx}
       data-testid="button-icon"
       disabled={disable}
       variant={variant}

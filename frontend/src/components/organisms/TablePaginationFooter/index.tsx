@@ -19,9 +19,12 @@ const NextAndPrevContainer = styled(Grid)({
   gap: '8px',
 })
 
+
+
+
 const TablePaginationFooter = () => {
   return (
-    <PaginationContainer data-testid='pagination-footer'>
+    <PaginationContainer container data-testid='pagination-footer'>
       <Typography variant={'body2'} color={theme.palette.mediumEmphasis.main}>
         {PAGINATION_RESULTS_MOCK_COUNT}
       </Typography>

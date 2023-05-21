@@ -15,6 +15,7 @@ export const accountingTabledata : AccountingDataType[]= [
     },
     receiptNumber: '#200257',
     memo: '21-00006',
+    rule: 'Travel'
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const accountingTabledata : AccountingDataType[]= [
     },
     receiptNumber: '#200257',
     memo: '21-00006',
+    rule: ''
   },
   {
     id: 3,
@@ -45,6 +47,7 @@ export const accountingTabledata : AccountingDataType[]= [
     },
     receiptNumber: '#200257',
     memo: '21-00006',
+    rule: ''
   },
   {
     id: 4,
@@ -60,6 +63,7 @@ export const accountingTabledata : AccountingDataType[]= [
     },
     receiptNumber: '#200257',
     memo: '21-00006',
+    rule: ''
   },
   {
     id: 5,
@@ -75,6 +79,7 @@ export const accountingTabledata : AccountingDataType[]= [
     },
     receiptNumber: '#200257',
     memo: '21-00006',
+    rule: ''
   },
   {
     id: 6,
@@ -90,6 +95,7 @@ export const accountingTabledata : AccountingDataType[]= [
     },
     receiptNumber: '#200257',
     memo: '21-00006',
+    rule: ''
   },
 ]
 
