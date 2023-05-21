@@ -1,7 +1,12 @@
 export const TYPOGRAPHY_POSITIVE_TEST_TEXT = 'typography'
 export const TYPOGRAPHY_NEGATIVE_TEST_TEXT = 'negative-test'
 export const ICON_DATA_TESTID = 'icon-comp'
-export const QUICKBOOKS_CATEGORY_OPTION = ['Expense', 'Travel','Travel meals', 'Hotels']
+export const QUICKBOOKS_CATEGORY_OPTION = [
+  'Expense',
+  'Travel',
+  'Travel meals',
+  'Hotels',
+]
 export const QUICKBOOKS_CATEGORY_DROPDOWN_PLACEHOLDER = 'Choose one'
 export const LABEL_VALUE_CARD_TEST_LABEL = 'Potential Savings'
 export const LABEL_VALUE_CARD_TEST_VALUE = '$5,000.00'
@@ -52,3 +57,18 @@ export const LOCATION_RULES_MOCK_VALUE  = 0
 export const MERCHANT_RULES_MOCK_VALUE  = 2
 export const DELETE_BUTTON_LABEL  = 'Delete'
 export const CHECKBOXES_ARRAY = [false,false,false,false,false,false]
+export const SETUP_GUIDE = 'Setup guide'
+export const NavBarButtonLabels = [
+  'Insights',
+  'Transactions',
+  'Cards',
+  'Company',
+  'Bill pay',
+  'Vendors',
+  'Reimbursement',
+  'Accounting',
+]
+export const REPORTING_CARD_HEADING = 'Partner reward found'
+export const REPORTING_CARD_CONTENT =
+  "You're paying for Amazon Web Services - leverage our partnership"
+export const REPORTING_CARD_POTENTIAL_SAVINGS_TEXT = 'Potential Savings'

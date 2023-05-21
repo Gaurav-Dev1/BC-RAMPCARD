@@ -48,6 +48,7 @@ declare module '@mui/material/styles' {
     body3: React.CSSProperties
     caption1: React.CSSProperties
     caption2: React.CSSProperties
+    tableHeading: React.CSSProperties
     custom: React.CSSProperties
   }
 
@@ -56,6 +57,7 @@ declare module '@mui/material/styles' {
     body3?: React.CSSProperties
     caption1?: React.CSSProperties
     caption2?: React.CSSProperties
+    tableHeading?: React.CSSProperties
     custom?: React.CSSProperties
   }
 }
@@ -66,6 +68,7 @@ declare module '@mui/material/Typography' {
     body3: true
     caption1: true
     caption2: true
+    tableHeading: true
     custom: true
   }
 }
@@ -75,6 +78,7 @@ declare module '@mui/material/Button' {
     primary300: true
     structuralWhite: true
     stroke50: true
+    structural100: true
   }
 }
 const theme = createTheme({
