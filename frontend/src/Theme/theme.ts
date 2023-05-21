@@ -49,6 +49,7 @@ declare module '@mui/material/styles' {
     caption1: React.CSSProperties
     caption2: React.CSSProperties
     tableHeading: React.CSSProperties
+    custom: React.CSSProperties
   }
 
   interface TypographyVariantsOptions {
@@ -57,6 +58,7 @@ declare module '@mui/material/styles' {
     caption1?: React.CSSProperties
     caption2?: React.CSSProperties
     tableHeading?: React.CSSProperties
+    custom?: React.CSSProperties
   }
 }
 
@@ -67,6 +69,7 @@ declare module '@mui/material/Typography' {
     caption1: true
     caption2: true
     tableHeading: true
+    custom: true
   }
 }
 declare module '@mui/material/Button' {
@@ -74,6 +77,7 @@ declare module '@mui/material/Button' {
     primary500: true
     primary300: true
     structuralWhite: true
+    structural100: true
   }
 }
 const theme = createTheme({
@@ -125,7 +129,7 @@ const theme = createTheme({
     },
     structuralWhite: {
       main: '#FFFFFF',
-    }
+    },
   },
   typography: {
     h1: {
@@ -207,7 +211,15 @@ const theme = createTheme({
       fontSize: '12px',
       lineHeight: '16px',
       textTransform: 'none',
-    }
+    },
+    custom: {
+      fontFamily: 'Segoe UI',
+      fontStyle: 'normal',
+      fontWeight: 600,
+      fontSize: '14px',
+      lineHeight: '20px',
+      textTransform: 'none',
+    },
   },
 })
 
