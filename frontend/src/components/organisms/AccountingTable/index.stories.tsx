@@ -3,7 +3,7 @@ import AccountingTable from '.'
 import { accountingTabledata } from '../../../Data/AccountTableData'
 
 const meta: Meta<typeof AccountingTable> = {
-  title: 'Molecules/AccountingTable',
+  title: 'Organisms/AccountingTable',
   component: AccountingTable,
 }
 
