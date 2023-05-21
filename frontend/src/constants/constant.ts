@@ -68,7 +68,9 @@ export const NavBarButtonLabels = [
   'Reimbursement',
   'Accounting',
 ]
+
 export const REPORTING_CARD_HEADING = 'Partner reward found'
-export const REPORTING_CARD_CONTENT =
-  "You're paying for Amazon Web Services - leverage our partnership"
+export const REPORTING_CARD_CONTENT = "You're paying for Amazon Web Services - leverage our partnership"
 export const REPORTING_CARD_POTENTIAL_SAVINGS_TEXT = 'Potential Savings'
+export const REPORTING_CARD_POTENTIAL_SAVINGS_VALUE = '$5,000.00'
+export const REPORTING_CARD_FOOTER_BUTTON_LABEL = 'Go to partner reward'
