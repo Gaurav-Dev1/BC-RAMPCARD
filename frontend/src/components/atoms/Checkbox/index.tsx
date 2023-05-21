@@ -6,12 +6,13 @@ import { styled } from '@mui/material';
 interface CheckBoxComponentProps {
     checked: boolean;
     handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    name?: string;
   }
 
 
 export default function CheckBoxComponent(props: CheckBoxComponentProps) {
 
-  const { checked , handleChange} = props;
+  const { checked , handleChange, name} = props;
 
   const StyledCheckbox = styled(Checkbox)({
     color: `${theme.palette.stroke100.main}`,
@@ -27,6 +28,7 @@ export default function CheckBoxComponent(props: CheckBoxComponentProps) {
       onChange={handleChange}
       inputProps={{ 'aria-label': 'controlled' }}
       disableRipple
+      name={name}
       data-testid="checkbox"
     />
   );

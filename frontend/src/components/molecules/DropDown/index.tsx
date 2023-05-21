@@ -18,8 +18,8 @@ const StyledSelect = styled(Select)({
 })
 
 interface DropDownProps {
-  value: unknown
-  onChange: (event: SelectChangeEvent<unknown>) => void
+  value?: unknown
+  onChange?: (event: SelectChangeEvent<unknown>) => void
   items: string[]
   placeholder?: string
   width?: string
@@ -31,7 +31,7 @@ const DropDown = (props: DropDownProps) => {
   }
   const { value, onChange, items, placeholder, height, width } = props
   const renderValue = (selected: unknown): ReactNode => {
-    if (selected === '') {
+    if (selected === '' || selected === undefined) {
       return (
         <Typography
           variant="body3"
