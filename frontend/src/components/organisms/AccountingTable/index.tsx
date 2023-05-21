@@ -83,8 +83,8 @@ const StyledTableRow = styled(TableRow)({
   },
 })
 export interface AccountingDataType {
-  id: number
-  transactions: {
+  id: string
+  type: {
     company: string
     platform: string
   }
@@ -145,8 +145,8 @@ const AccountingTable = (props: AccountingTableProps) => {
               </TableCell>
               <TransactionsRowTableCell>
                 <LabelAndValueCard
-                  label={data.transactions.company}
-                  value={data.transactions.platform}
+                  label={data.type.company}
+                  value={data.type.platform}
                   labelColor={theme.palette.highEmphasis.main}
                   valueColor={theme.palette.mediumEmphasis.main}
                   labelVariant={'body2'}

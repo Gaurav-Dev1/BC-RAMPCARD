@@ -74,3 +74,5 @@ export const REPORTING_CARD_CONTENT = "You're paying for Amazon Web Services - l
 export const REPORTING_CARD_POTENTIAL_SAVINGS_TEXT = 'Potential Savings'
 export const REPORTING_CARD_POTENTIAL_SAVINGS_VALUE = '$5,000.00'
 export const REPORTING_CARD_FOOTER_BUTTON_LABEL = 'Go to partner reward'
+export const SOMETHING_WENT_WRONG = 'something went wrong'
+export const REACT_MOCK_API_URL = 'https://6469fbee183682d6144ac035.mockapi.io/api/v1/'

@@ -11,15 +11,16 @@ import DeleteIcon from '../../../../public/assets/icons/deleteIcon.svg'
 import {
   CREATE_CATEGORY_RULE_BUTTON_TEXT,
   DELETE_BUTTON_LABEL,
+  SOMETHING_WENT_WRONG,
   SYNC_BUTTON_LABEL,
 } from '../../../constants/constant'
 import ButtonComponent from '../../atoms/Button'
 import AccountingTable, { AccountingDataType } from '../AccountingTable'
-import { accountingTabledata } from '../../../Data/AccountTableData'
 import SearchSuggestionCard from '../../molecules/SearchSuggestionCard'
 import { useEffect, useState } from 'react'
 import TablePaginationFooter from '../TablePaginationFooter'
 import RampCards from '../../molecules/RampCards'
+import { getAllTransactionsData } from '../../services/AllTransactions'
 
 const MainContainer = styled(Grid)({
   gap: '12px',
@@ -62,7 +63,26 @@ const AccountingPageContent = () => {
   const [searchedText, setSearchedText] = useState<string | undefined>()
   const [searched, setSearched] = useState<boolean>(false)
   const [transactionsData, setTransactionsData] =
-    useState<AccountingDataType[]>(accountingTabledata)
+    useState<AccountingDataType[]>(
+      [
+      {
+        id: '',
+        type: {
+          company: '',
+          platform: ''
+        },
+        amount: '',
+        date: '',
+        user: {
+          fullName: '',
+          userName: ''
+        },
+        receiptNumber: '',
+        memo: '',
+        rule: ''
+      }
+    ]
+    )
   const [checkedIds, setCheckedIds] = useState<boolean[]>([])
 
   const items = [] as any
@@ -95,12 +115,16 @@ const AccountingPageContent = () => {
 
   const onQuickbooksRuleChange = (event: SelectChangeEvent<unknown>): void => {
     const { name } = event.target
-    const id = Number(name)
+    const id = name
     let tempTransactionsData: AccountingDataType[] = [...transactionsData]
-    console.log(tempTransactionsData)
+    console.log("tempTransactionsdata",tempTransactionsData)
+    console.log('event target', event.target.value)
     tempTransactionsData.forEach((item, index) => {
+      console.log("itemid ->",item.id,"id -> ",id)
       if (item.id === id) {
+        console.log('match')
         item.rule = event.target.value as string
+        console.log('now item rule', item.rule)
       }
     })
     console.log('shallow array copy -> ', tempTransactionsData)
@@ -116,6 +140,19 @@ const AccountingPageContent = () => {
   const onSearchedTextClick = () => {
     setSearched(true)
   }
+
+  useEffect( () => {
+
+      getAllTransactionsData(searchedText)
+      .then((res: AccountingDataType[]) => {
+        console.log('checking the trigger')
+        setTransactionsData(res)
+      })
+      .catch((error) => {
+        console.log(error)
+        console.log(SOMETHING_WENT_WRONG);
+      });
+  },[])
 
   return (
     <MainContainer data-testid="accounting-page-content" container>

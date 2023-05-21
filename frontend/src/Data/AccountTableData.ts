@@ -2,8 +2,8 @@ import { AccountingDataType } from "../components/organisms/AccountingTable";
 
 export const accountingTabledata : AccountingDataType[]= [
   {
-    id: 1,
-    transactions: {
+    id: '1',
+    type: {
       company: 'H&M',
       platform: 'casio',
     },
@@ -18,8 +18,8 @@ export const accountingTabledata : AccountingDataType[]= [
     rule: 'Travel'
   },
   {
-    id: 2,
-    transactions: {
+    id: '2',
+    type: {
       company: 'H&M',
       platform: 'casio',
     },
@@ -34,8 +34,8 @@ export const accountingTabledata : AccountingDataType[]= [
     rule: ''
   },
   {
-    id: 3,
-    transactions: {
+    id: '3',
+    type: {
       company: 'H&M',
       platform: 'casio',
     },
@@ -50,8 +50,8 @@ export const accountingTabledata : AccountingDataType[]= [
     rule: ''
   },
   {
-    id: 4,
-    transactions: {
+    id: '4',
+    type: {
       company: 'H&M',
       platform: 'casio',
     },
@@ -66,8 +66,8 @@ export const accountingTabledata : AccountingDataType[]= [
     rule: ''
   },
   {
-    id: 5,
-    transactions: {
+    id: '5',
+    type: {
       company: 'H&M',
       platform: 'casio',
     },
@@ -82,8 +82,8 @@ export const accountingTabledata : AccountingDataType[]= [
     rule: ''
   },
   {
-    id: 6,
-    transactions: {
+    id: '6',
+    type: {
       company: 'H&M',
       platform: 'casio',
     },
