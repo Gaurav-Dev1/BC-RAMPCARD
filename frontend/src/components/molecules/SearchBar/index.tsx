@@ -53,7 +53,7 @@ const SearchBar = (props: SearchBarProps) => {
 
   return (
     <SearchBarMainContainer container width={width} data-testid="searchbar">
-      <Grid item direction={'row'} display={'flex'}>
+      <Grid item  display={'flex'}>
         <Icon src={SearchIcon} />
       </Grid>
       <Grid item>
