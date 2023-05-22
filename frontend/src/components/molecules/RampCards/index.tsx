@@ -35,7 +35,7 @@ const RampCardsFooter = styled(Grid)({
 const RampCards = (props: RampCardsProps) => {
   const { merchantRulesCount, width } = props
   return (
-    <MainRampCardsContainer container width={width} data-testId="ramp-cards">
+    <MainRampCardsContainer container width={width} data-testid="ramp-cards">
       <RampCardsHeader item>
         <Typography variant="h1" color={theme.palette.highEmphasis.main}>
           {RAMPCARDS_TEXT}
