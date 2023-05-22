@@ -22,6 +22,7 @@ declare module '@mui/material/styles' {
     accentGreen100: PaletteColor
     accentGreen50: PaletteColor
     structuralWhite: PaletteColor
+    textIconPrimary: PaletteColor
   }
 
   interface PaletteOptions {
@@ -41,6 +42,7 @@ declare module '@mui/material/styles' {
     accentGreen100: PaletteColorOptions
     accentGreen50: PaletteColorOptions
     structuralWhite: PaletteColorOptions
+    textIconPrimary: PaletteColorOptions
   }
 
   interface TypographyVariants {
@@ -131,6 +133,9 @@ const theme = createTheme({
     structuralWhite: {
       main: '#FFFFFF',
     },
+    textIconPrimary: {
+      main: '#30313D',
+    }
   },
   typography: {
     h1: {
