@@ -4,7 +4,6 @@ import Typography from '../../atoms/Typography'
 import {
   REPORTING_CARD_FOOTER_BUTTON_LABEL,
   REPORTING_CARD_POTENTIAL_SAVINGS_TEXT,
-  REPORTING_CARD_POTENTIAL_SAVINGS_VALUE,
 } from '../../../constants/constant'
 import Image from '../../atoms/Image'
 import AwsImg from '../../../../public/assets/images/aws.svg'
@@ -16,6 +15,7 @@ import Icon from '../../atoms/Icon'
 interface ReportingCardProps {
   heading: string
   content: string
+  savingsValue: string
 }
 
 const ReportingCardMainContainer = styled(Grid)({
@@ -41,7 +41,7 @@ const ReportingCardFooterContainer = styled(Grid)({
 })
 
 const ReportingCard = (props: ReportingCardProps) => {
-  const {heading, content} = props;
+  const {heading, content, savingsValue} = props;
   return (
     <ReportingCardMainContainer container data-testid = 'reporting-card'>
       <Typography variant="subtitle2" color={theme.palette.highEmphasis.main}>
@@ -56,7 +56,7 @@ const ReportingCard = (props: ReportingCardProps) => {
         <Image src={AwsImg} />
         <LabelAndValueCard
           label={REPORTING_CARD_POTENTIAL_SAVINGS_TEXT}
-          value={REPORTING_CARD_POTENTIAL_SAVINGS_VALUE}
+          value={savingsValue}
           labelColor={theme.palette.lowEmphasis.main}
           valueColor={theme.palette.accentGreen100.main}
           labelVariant={'caption2'}
