@@ -1,13 +1,14 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import {  render, screen } from '@testing-library/react'
 import AccountingTable from '.'
 import theme from '../../../Theme/theme'
 import { ThemeProvider } from '@mui/material'
 import '@testing-library/jest-dom'
+import { CHECKBOXES_ARRAY } from '../../../constants/constant'
 
 const accountingTableData = [
   {
-    id: 1,
-    transactions: {
+    id: '1',
+    type: {
       company: 'Company 1',
       platform: 'Platform 1',
     },
@@ -19,14 +20,16 @@ const accountingTableData = [
     },
     receiptNumber: '12345',
     memo: 'Sample memo',
+    rule: 'Travel'
   },
 ]
 
+const mockHandleChange = jest.fn()
 describe('AccountingTable unit test', () => {
   it('renders accounting table with data', () => {
     render(
       <ThemeProvider theme={theme}>
-        <AccountingTable accountingTableData={accountingTableData} />
+        <AccountingTable accountingTableData={accountingTableData} handleCheckbox={mockHandleChange } checkboxes={CHECKBOXES_ARRAY} />
       </ThemeProvider>
     )
 
@@ -38,8 +41,8 @@ describe('AccountingTable unit test', () => {
     expect(screen.getByText('MEMO')).toBeInTheDocument()
 
     accountingTableData.forEach((data) => {
-      expect(screen.getByText(data.transactions.company)).toBeInTheDocument()
-      expect(screen.getByText(data.transactions.platform)).toBeInTheDocument()
+      expect(screen.getByText(data.type.company)).toBeInTheDocument()
+      expect(screen.getByText(data.type.platform)).toBeInTheDocument()
       expect(screen.getByText(data.amount)).toBeInTheDocument()
       expect(screen.getByText(data.date)).toBeInTheDocument()
       expect(screen.getByText(data.user.fullName)).toBeInTheDocument()
@@ -49,20 +52,4 @@ describe('AccountingTable unit test', () => {
     })
   })
 
-  it('handles checkbox click event', () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <AccountingTable accountingTableData={accountingTableData} />
-      </ThemeProvider>
-    )
-
-    const checkbox = screen.getByRole('checkbox', {
-      name: 'controlled',
-    }) as HTMLInputElement
-    expect(checkbox.checked).toBe(false)
-
-    fireEvent.click(checkbox)
-
-    expect(checkbox.checked).toBe(true)
-  })
 })

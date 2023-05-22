@@ -5,7 +5,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-import { Grid, styled } from '@mui/material'
+import { Grid, SelectChangeEvent, styled } from '@mui/material'
 import Typography from '../../atoms/Typography'
 import theme from '../../../Theme/theme'
 import {
@@ -16,7 +16,6 @@ import {
 } from '../../../constants/constant'
 import CheckBoxComponent from '../../atoms/Checkbox'
 import ButtonComponent from '../../atoms/Button'
-import { useState } from 'react'
 import DropDown from '../../molecules/DropDown'
 import LabelAndValueCard from '../../molecules/LabelAndValueCard'
 import Icon from '../../atoms/Icon'
@@ -77,9 +76,15 @@ const MemoContainer = styled(Grid)({
 const MemoTableRowCell = styled(TableCell)({
   paddingLeft: '8px',
 })
+
+const StyledTableRow = styled(TableRow)({
+  '&:not(:last-child)': {
+    borderBottom: `2px solid ${theme.palette.stroke50.main}`, // Add a border bottom to all rows except the last one
+  },
+})
 export interface AccountingDataType {
-  id: number
-  transactions: {
+  id: string
+  type: {
     company: string
     platform: string
   }
@@ -91,34 +96,29 @@ export interface AccountingDataType {
   }
   receiptNumber: string
   memo: string
+  rule: string
 }
 interface AccountingTableProps {
   accountingTableData: AccountingDataType[]
+  onQuickBooksRuleChange?: (event: SelectChangeEvent<unknown>) => void
+  handleCheckbox: (e: React.ChangeEvent<HTMLInputElement>) => void
+  checkboxes: any
 }
 const AccountingTable = (props: AccountingTableProps) => {
-  const { accountingTableData } = props
-  const items = {} as any
-  accountingTableData.forEach((accountingData: AccountingDataType) => {
-    items[accountingData.id] = false
-  })
-  const [checkboxes, setCheckboxes] = useState(items)
-
-  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('handleCheckbox')
-    const { name } = e.target
-    const index = Number(name)
-    const tempCheckboxes = { ...checkboxes }
-    tempCheckboxes[index] = !tempCheckboxes[index]
-    setCheckboxes(tempCheckboxes)
-  }
+  const {
+    accountingTableData,
+    onQuickBooksRuleChange,
+    handleCheckbox,
+    checkboxes,
+  } = props
 
   return (
     <TableContainer component={Paper} data-testid="accounting-table">
       <Table aria-label="simple table">
         <TableHead>
-          <TableRow>
+          <StyledTableRow>
             <CheckBoxTableHead></CheckBoxTableHead>
-            {ACCOUNTING_TABLE_HEADINGS.map((data: string,index: number) => (
+            {ACCOUNTING_TABLE_HEADINGS.map((data: string, index: number) => (
               <TableDataHeadingCell key={data}>
                 <Typography
                   variant="caption2"
@@ -128,7 +128,7 @@ const AccountingTable = (props: AccountingTableProps) => {
                 </Typography>
               </TableDataHeadingCell>
             ))}
-          </TableRow>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {accountingTableData.map((data: AccountingDataType) => (
@@ -145,8 +145,8 @@ const AccountingTable = (props: AccountingTableProps) => {
               </TableCell>
               <TransactionsRowTableCell>
                 <LabelAndValueCard
-                  label={data.transactions.company}
-                  value={data.transactions.platform}
+                  label={data.type.company}
+                  value={data.type.platform}
                   labelColor={theme.palette.highEmphasis.main}
                   valueColor={theme.palette.mediumEmphasis.main}
                   labelVariant={'body2'}
@@ -177,6 +177,9 @@ const AccountingTable = (props: AccountingTableProps) => {
               <TableCell>
                 <DropDown
                   placeholder={QUICKBOOKS_CATEGORY_DROPDOWN_PLACEHOLDER}
+                  value={data.rule}
+                  name={String(data.id)}
+                  onChange={onQuickBooksRuleChange}
                   height="32px"
                   width="96%"
                   items={QUICKBOOKS_CATEGORY_OPTION}

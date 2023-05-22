@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import AccountingTable from '.'
 import { accountingTabledata } from '../../../Data/AccountTableData'
+import { CHECKBOXES_ARRAY } from '../../../constants/constant'
 
 const meta: Meta<typeof AccountingTable> = {
   title: 'Organisms/AccountingTable',
@@ -12,6 +13,7 @@ type Story = StoryObj<typeof AccountingTable>
 
 export const AccountingTableComponent: Story = {
     args: {
-        accountingTableData: accountingTabledata
+        accountingTableData: accountingTabledata,
+        checkboxes:CHECKBOXES_ARRAY
     }
 }

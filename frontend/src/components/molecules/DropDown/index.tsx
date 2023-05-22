@@ -24,12 +24,13 @@ interface DropDownProps {
   placeholder?: string
   width?: string
   height?: string
+  name?: string
 }
 const DropDown = (props: DropDownProps) => {
   const renderIcon = () => {
     return <Icon src={DropDownIcon} />
   }
-  const { value, onChange, items, placeholder, height, width } = props
+  const { value, onChange, items, placeholder, height, width, name } = props
   const renderValue = (selected: unknown): ReactNode => {
     if (selected === '' || selected === undefined) {
       return (
@@ -49,6 +50,7 @@ const DropDown = (props: DropDownProps) => {
       data-testid="text-select"
       displayEmpty
       value={value}
+      name={name}
       onChange={onChange}
       IconComponent={renderIcon}
       style={{ height: height, width: width, paddingRight: '8px' }}
