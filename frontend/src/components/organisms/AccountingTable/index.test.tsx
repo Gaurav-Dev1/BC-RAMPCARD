@@ -3,6 +3,7 @@ import AccountingTable from '.'
 import theme from '../../../Theme/theme'
 import { ThemeProvider } from '@mui/material'
 import '@testing-library/jest-dom'
+import { CHECKBOXES_ARRAY } from '../../../constants/constant'
 
 const accountingTableData = [
   {
@@ -19,7 +20,7 @@ const accountingTableData = [
     },
     receiptNumber: '12345',
     memo: 'Sample memo',
-    rule: 'rule'
+    rule: 'Travel'
   },
 ]
 
@@ -28,7 +29,7 @@ describe('AccountingTable unit test', () => {
   it('renders accounting table with data', () => {
     render(
       <ThemeProvider theme={theme}>
-        <AccountingTable accountingTableData={accountingTableData} handleCheckbox={mockHandleChange } checkboxes={[1,2,3]} />
+        <AccountingTable accountingTableData={accountingTableData} handleCheckbox={mockHandleChange } checkboxes={CHECKBOXES_ARRAY} />
       </ThemeProvider>
     )
 
