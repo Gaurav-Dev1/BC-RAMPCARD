@@ -6,8 +6,8 @@ import '@testing-library/jest-dom'
 
 const accountingTableData = [
   {
-    id: 1,
-    transactions: {
+    id: '1',
+    type: {
       company: 'Company 1',
       platform: 'Platform 1',
     },
@@ -40,8 +40,8 @@ describe('AccountingTable unit test', () => {
     expect(screen.getByText('MEMO')).toBeInTheDocument()
 
     accountingTableData.forEach((data) => {
-      expect(screen.getByText(data.transactions.company)).toBeInTheDocument()
-      expect(screen.getByText(data.transactions.platform)).toBeInTheDocument()
+      expect(screen.getByText(data.type.company)).toBeInTheDocument()
+      expect(screen.getByText(data.type.platform)).toBeInTheDocument()
       expect(screen.getByText(data.amount)).toBeInTheDocument()
       expect(screen.getByText(data.date)).toBeInTheDocument()
       expect(screen.getByText(data.user.fullName)).toBeInTheDocument()
@@ -51,22 +51,4 @@ describe('AccountingTable unit test', () => {
     })
   })
 
-  // it('handles checkbox click event', () => {
-  //   render(
-  //     <ThemeProvider theme={theme}>
-  //       <AccountingTable accountingTableData={accountingTableData} handleCheckbox={function (e: ChangeEvent<HTMLInputElement>): void {
-  //         throw new Error('Function not implemented.')
-  //       } } checkboxes={[false,false,false]} />
-  //     </ThemeProvider>
-  //   )
-
-  //   const checkbox = screen.getByRole('checkbox', {
-  //     name: 'controlled',
-  //   }) as HTMLInputElement
-  //   expect(checkbox.checked).toBe(false)
-
-  //   fireEvent.click(checkbox)
-
-  //   expect(checkbox.checked).toBe(true)
-  // })
 })
