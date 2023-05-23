@@ -6,6 +6,7 @@ import { ThemeProvider } from '@mui/material'
 import {
   REPORTING_CARD_CONTENT,
   REPORTING_CARD_HEADING,
+  REPORTING_CARD_POTENTIAL_SAVINGS_VALUE,
 } from '../../../constants/constant'
 
 describe('ReportingCard component unit test', () => {
@@ -14,8 +15,7 @@ describe('ReportingCard component unit test', () => {
       <ThemeProvider theme={theme}>
         <ReportingCard
           heading={REPORTING_CARD_HEADING}
-          content={REPORTING_CARD_CONTENT}
-        />
+          content={REPORTING_CARD_CONTENT} savingsValue={REPORTING_CARD_POTENTIAL_SAVINGS_VALUE}        />
       </ThemeProvider>
     )
     const labelvalueTextElement = screen.getByTestId('reporting-card')
